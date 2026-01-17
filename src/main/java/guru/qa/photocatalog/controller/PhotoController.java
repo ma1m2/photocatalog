@@ -3,6 +3,7 @@ package guru.qa.photocatalog.controller;
 import guru.qa.photocatalog.domain.Photo;
 import guru.qa.photocatalog.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,7 @@ public class PhotoController {
 
   @GetMapping("/{id}")
   public Photo byId(@PathVariable("id") String id) {
-    return photoService.byId(id);
+    return photoService.photoById(id);
   }
 
 }
