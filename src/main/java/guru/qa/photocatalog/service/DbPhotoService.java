@@ -39,6 +39,17 @@ public class DbPhotoService implements PhotoService{
   }
 
   @Override
+  public List<PhotoGql> allGqlPhotos() {
+    return photoRepository.findAll().stream()
+            .map(fe -> new PhotoGql(
+                    fe.getId(),
+                    fe.getDescription(),
+                    fe.getLastModifyDate(),
+                    fe.getContent() != null ? new String(fe.getContent()) : ""
+            )).toList();
+  }
+
+  @Override
   public Page<Photo> allPhotos(Pageable pageable) {
     return allGqlPhotos(pageable)
             .map(gqlPhoto -> new Photo(

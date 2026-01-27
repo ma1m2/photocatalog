@@ -13,6 +13,8 @@ public interface PhotoService {
 
   List<Photo> allPhotos();
 
+  List<PhotoGql> allGqlPhotos();
+
   Slice<Photo> allPhotos(Pageable pageable);
 
   Slice<PhotoGql> allGqlPhotos(Pageable pageable);
