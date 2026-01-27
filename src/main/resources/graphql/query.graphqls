@@ -1,7 +1,7 @@
 scalar Date
 
 type Query{
-    photo(id: ID!): Photo
+    photo(id: ID!): Photo!
     photos(page:Int, size:Int): PhotoConnection
 }
 
